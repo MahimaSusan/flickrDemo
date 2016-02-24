@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app ="routeApp">
+    <head>
+        <title>
+            index
+        </title>
+        <script type="text/javascript" src = "assets/js/lib/jquery-1.11.3.min.js">
+        </script>
+        <link rel="stylesheet" type="text/css" href="assets/js/lib/bootstrap.css"/>
+        <script type="text/javascript" src = "assets/js/lib/bootstrap.js">
+        </script>
+        <script type="text/javascript" src = "assets/js/lib/angular.min.js">
+        </script>
+        <link rel="stylesheet" type="text/css" href="assets/stylesheets/style.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
+        <script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
+
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#flickr">
+                            Flickr
+                        </a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="#dashboard">
+                                Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#users">
+                                Users
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+           <div ng-view></div>
+        <script type="text/javascript" src ="app.js"></script>
+        <script type="text/javascript" src = "controllers/users_controller.js"></script>
+     <script type="text/javascript">
+ var ref = new Firebase("https://scorching-fire-2565.firebaseio.com/web/flickrDemo/users");
+var usersRef = ref.child("users");
+usersRef.set({
+  Mahima: {
+    date_of_birth: "June 23, 1912",
+    full_name: "Mahima Susan Thomas"
+  },
+  Akshaya: {
+    date_of_birth: "December 9, 1906",
+    full_name: "Akshaya K T"
+  }
+});
+
+     </script>
+    </body>
+</html>
